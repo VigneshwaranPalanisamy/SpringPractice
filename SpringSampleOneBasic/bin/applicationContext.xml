@@ -9,10 +9,9 @@
 
 	<!-- Define a dependency bean -->
 	<bean id="fortuneService"
-		class="com.sample.spring.basic.RandomFortuneService">
+		class="com.sample.spring.basic.RandomFortuneService" init-method="doInit" destroy-method="doDestroy">
 	</bean>
 	
-
     <!-- Define your beans here -->
  	<bean id="myCoach"
  		class="com.sample.spring.basic.CricketCoach">
