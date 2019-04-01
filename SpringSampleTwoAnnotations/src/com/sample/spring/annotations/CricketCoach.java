@@ -11,8 +11,8 @@ public class CricketCoach implements Coach{
 	private FortuneService theFortuneService;
 	
 	@Autowired
-	public void loadDependency(@Qualifier("happyFortuneService") FortuneService theFortuneService) {
-		 System.out.println("Method injection");
+	public void loadDependency(@Qualifier("randomFortuneService") FortuneService theFortuneService) {
+		 System.out.println("Method injection : "+theFortuneService.getClass());
 		 this.theFortuneService = theFortuneService; 
 	}
 	
