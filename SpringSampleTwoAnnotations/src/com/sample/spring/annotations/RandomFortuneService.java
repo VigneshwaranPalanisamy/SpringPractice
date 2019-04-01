@@ -3,6 +3,7 @@ package com.sample.spring.annotations;
 import java.util.Random;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -17,13 +18,10 @@ public class RandomFortuneService implements FortuneService {
 	
 	@PostConstruct
 	public void doInit() {
-		System.out.println("Inside PostConstruct Method - RandomFortuneService Class");
-		fortunesList[0] = "Have a good day !!!";
-		fortunesList[1] = "All is well !!!";
-		fortunesList[2] = "May your wishes comes true !!!";
+		System.out.println("Inside Init Method - RandomFortuneService Class");
 	}
 	
-	@SuppressWarnings("unused")
+	@PreDestroy
 	private void doDestroy() {
 		System.out.println("Inside Destroy Method - RandomFortuneService Class");
 	}
@@ -33,9 +31,9 @@ public class RandomFortuneService implements FortuneService {
 	@Override
 	public String getFortune() {
 		//System.out.println("Fortunes loaded from property file are:\n"+fortunes);
-		//fortunesList = fortunes.split(",");
+		fortunesList = fortunes.split(",");
 		int index = myRandom.nextInt(fortunesList.length);
-		return fortunesList[index];
+		return "Random Fortune: "+fortunesList[index]+" !!!";
 	}
 
 }

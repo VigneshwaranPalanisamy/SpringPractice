@@ -7,7 +7,7 @@ public class HappyFortuneService implements FortuneService {
 
 	@Override
 	public String getFortune() {
-		return "HappyFortuneService - Have a good day !!!";
+		return "Happy Fortune: Have a good day !!!";
 	}
 
 }

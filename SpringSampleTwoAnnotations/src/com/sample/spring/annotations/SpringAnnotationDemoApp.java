@@ -12,18 +12,21 @@ public class SpringAnnotationDemoApp {
 		// retrieve bean from spring container
 		CricketCoach theCoach = context.getBean("cricketCoach", CricketCoach.class);
 		
-		//System.out.println(theCoach.getStatus());
-		/*
-		 * System.out.println(theCoach.getStatus()); theCoach.setStatus("Change - 1");
-		 * System.out.println(theCoach.getStatus()); theCoach.setStatus("Change - 2");
-		 * 
-		 * CricketCoach theCoach2 = context.getBean("myCoach", CricketCoach.class);
-		 * System.out.println(theCoach2.getStatus()); theCoach2.setStatus("Change - 3");
-		 * System.out.println(theCoach2.getStatus());
-		 * System.out.println(theCoach.getStatus()); theCoach.setStatus("Change - 1");
-		 * System.out.println(theCoach.getStatus());
-		 */
-		
+		/*  System.out.println("1-> "+theCoach.getStatus()); 
+		  theCoach.setStatus("Change - 1");
+		  System.out.println("1-> "+theCoach.getStatus()); 
+		  theCoach.setStatus("Change - 2");
+		  System.out.println("1-> " +theCoach.getStatus());
+		  
+		  CricketCoach theCoach2 = context.getBean("cricketCoach", CricketCoach.class);
+		  System.out.println("2-> "+theCoach2.getStatus()); 
+		  theCoach2.setStatus("Change - 3");
+		  System.out.println("2-> "+theCoach2.getStatus());
+		  System.out.println("1-> "+theCoach.getStatus()); 
+		  theCoach.setStatus("Change - 1");
+		  System.out.println("1-> "+theCoach.getStatus());
+		  System.out.println("2-> "+theCoach2.getStatus());
+		*/
 		// call methods on the bean
 		System.out.println(theCoach.getTrainingDetails());
 		

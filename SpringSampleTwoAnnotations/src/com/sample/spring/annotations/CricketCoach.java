@@ -1,19 +1,31 @@
 package com.sample.spring.annotations;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
+@Scope
 public class CricketCoach implements Coach{
-
 	
-	private FortuneService theFortuneService;
+	private FortuneService theHappyFortuneService;
 	
 	@Autowired
-	public void loadDependency(@Qualifier("randomFortuneService") FortuneService theFortuneService) {
-		 System.out.println("Method injection : "+theFortuneService.getClass());
-		 this.theFortuneService = theFortuneService; 
+	  public void loadDependency1(@Qualifier("happyFortuneService") FortuneService theFortuneService) {
+	  System.out.println("Dependency (Method) injection : "+theFortuneService.
+	  getClass()); theHappyFortuneService = theFortuneService; }
+	 
+	
+	private FortuneService otherFortuneService;
+	
+	@Autowired
+	public void loadDependency2(@Qualifier("randomFortuneService") FortuneService theFortuneService) {
+		 System.out.println("Dependency (Method) injection : "+theFortuneService.getClass());
+		 otherFortuneService = theFortuneService; 
 	}
 	
 	/*
@@ -25,7 +37,7 @@ public class CricketCoach implements Coach{
 	private String status;
 	
 	public CricketCoach() { 
-		System.out.println("Inside default constructor");
+		System.out.println("Inside default constructor - - CricketCoach Class");
 		status = "New"; 
 	}
 	
@@ -48,8 +60,16 @@ public class CricketCoach implements Coach{
 
 	@Override
 	public String getDailyFortune() {
-		return theFortuneService.getFortune();
+		return "--->> "+theHappyFortuneService.getFortune()+"\n--->> "+otherFortuneService.getFortune();
 		//return "All is well !!";
 	}
 
+	@PostConstruct
+	public void doInit() {
+		System.out.println("Inside Init Method - CricketCoach Class");
+	}
+	@PreDestroy
+	private void doDestroy() {
+		System.out.println("Inside Destroy Method - CricketCoach Class");
+	}
 }
