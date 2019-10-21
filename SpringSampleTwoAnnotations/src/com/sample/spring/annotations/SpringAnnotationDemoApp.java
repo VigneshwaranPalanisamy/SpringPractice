@@ -1,5 +1,6 @@
 package com.sample.spring.annotations;
 
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class SpringAnnotationDemoApp {
@@ -8,9 +9,11 @@ public class SpringAnnotationDemoApp {
 		// load the spring configuration file
 		ClassPathXmlApplicationContext context = 
 				new ClassPathXmlApplicationContext("applicationContext.xml");
-
+		// load the spring config using java configurations (No -XML)
+		AnnotationConfigApplicationContext context2 = new AnnotationConfigApplicationContext(SpringAnnotationConfig.class);
+		
 		// retrieve bean from spring container
-		CricketCoach theCoach = context.getBean("cricketCoach", CricketCoach.class);
+		CricketCoach theCoach = context2.getBean("cricketCoach", CricketCoach.class);
 		
 		/*  System.out.println("1-> "+theCoach.getStatus()); 
 		  theCoach.setStatus("Change - 1");
@@ -33,7 +36,7 @@ public class SpringAnnotationDemoApp {
 		System.out.println(theCoach.getDailyFortune());
 
 		// close the context
-		context.close();
+		context2.close();
 	}
 
 }
