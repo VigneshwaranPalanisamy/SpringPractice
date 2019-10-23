@@ -1,4 +1,5 @@
-package com.sample.spring.mvc;
+package com.sample.spring.mvc.basic;
+
 
 import javax.servlet.http.HttpServletRequest;
 

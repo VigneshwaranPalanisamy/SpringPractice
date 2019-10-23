@@ -1,4 +1,5 @@
-package com.sample.spring.mvc;
+package com.sample.spring.mvc.basic;
+
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
