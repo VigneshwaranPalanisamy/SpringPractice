@@ -7,6 +7,8 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import com.sample.spring.mvc.validations.PinCode;
+
 public class Student {
 	
 	@NotNull(message="is required")
@@ -20,6 +22,9 @@ public class Student {
 	@Min(value=10,message="must be grater than or equals to 10")
 	@Max(value=18,message="must be less than or equals to 18")
 	private Integer age;
+	
+	@PinCode(value= {"641","123"},message="must start with 641 or 123")
+	private String pinCode;
 	
 	private LinkedHashMap<String,String> countries;
 	
@@ -86,6 +91,18 @@ public class Student {
 	public LinkedHashMap<String, String> getCountries() {
 		return countries;
 	}
-	
+
+	public void setCountries(LinkedHashMap<String, String> countries) {
+		this.countries = countries;
+	}
+
+	public String getPinCode() {
+		return pinCode;
+	}
+
+	public void setPinCode(String pinCode) {
+		this.pinCode = pinCode;
+	}
+
 	
 }

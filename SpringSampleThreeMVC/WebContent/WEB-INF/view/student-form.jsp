@@ -30,6 +30,11 @@
 	<form:input path="age" />
 	<form:errors path="age" cssClass="error" />
 		<br>
+		<br>
+	Pincode:
+	<form:input path="pinCode" />
+	<form:errors path="pinCode" cssClass="error" />
+		<br>
 		<br>	
 	Country: 	
 	<form:select path="country">
